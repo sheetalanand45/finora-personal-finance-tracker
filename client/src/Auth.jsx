@@ -3,7 +3,7 @@ import { Wallet, Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import "./Auth.css";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 
 export default function Auth({ onAuthenticated }) {
   const [mode, setMode] = useState("login");
