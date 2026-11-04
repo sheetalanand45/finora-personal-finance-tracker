@@ -176,7 +176,7 @@ function App() {
 
     const loadTransactions = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/transactions", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -215,7 +215,7 @@ function App() {
 
     const loadBudget = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/budget", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/budget`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -525,7 +525,7 @@ async function saveTransactionToBackend(transaction) {
     throw new Error("Please log in before saving a transaction.");
   }
 
-  const response = await fetch("http://localhost:5000/api/transactions", {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -597,7 +597,7 @@ async function saveTransactionToBackend(transaction) {
 
   async function deleteTransaction(id) {
     try {
-      const response = await fetch(`http://localhost:5000/api/transactions/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -629,7 +629,7 @@ async function saveTransactionToBackend(transaction) {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/budget", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/budget`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -1415,7 +1415,7 @@ async function saveTransactionToBackend(transaction) {
               }
 
               try {
-                const response = await fetch("http://localhost:5000/api/transactions", {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
                   method: "DELETE",
                   headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
